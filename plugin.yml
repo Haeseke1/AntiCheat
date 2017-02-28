@@ -1,0 +1,8 @@
+name: AntiCheat
+main: me.Haeseke1.AntiCheat.Main.Main
+version: 1.0
+author: [KingPieter,Haeseke1]
+commands:
+ AntiCheat:
+  aliases: [ac,anticheat]
+  description: Main command of the plugin

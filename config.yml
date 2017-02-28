@@ -1,0 +1,8 @@
+#Stores all the settings of the anti cheat plugin
+logo: '&8[&6AntiCheat&8]'
+
+command-block: true
+anti-spam: true
+
+max-amount-messages: 8
+time-interval-messages: 10
