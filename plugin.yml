@@ -4,5 +4,6 @@ version: 1.0
 author: [KingPieter,Haeseke1]
 commands:
  AntiCheat:
+  permission: Anti_Cheat.commands
   aliases: [ac,anticheat]
   description: Main command of the plugin
