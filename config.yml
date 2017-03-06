@@ -8,8 +8,14 @@ anti-spam-module:
   anti-spam: true
   max-amount-messages: 5
   time-interval-messages: 5
+  kick-player-over-limit: true
 
 anti-command-spam-module:
   anti-command-spam: true
   max-amount-commands: 5
   time-interval-commands: 5
+  kick-player-over-limit: true
+
+anti-wall-running-module:
+  anti-wall-running: true
+  ban-player: true

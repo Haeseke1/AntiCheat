@@ -7,7 +7,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import me.Haeseke1.AntiCheat.Commands.AntiCheat;
 import me.Haeseke1.AntiCheat.Events.Chat;
+import me.Haeseke1.AntiCheat.Events.Move;
 import me.Haeseke1.AntiCheat.Events.PreProcess;
+import me.Haeseke1.AntiCheat.Module.Anti_Command_Spam;
+import me.Haeseke1.AntiCheat.Module.Anti_Spam;
+import me.Haeseke1.AntiCheat.Module.Anti_Wall_Running;
 import me.Haeseke1.AntiCheat.Utils.ConfigManager;
 import me.Haeseke1.AntiCheat.Utils.MessageManager;
 
@@ -40,6 +44,7 @@ public class Main extends JavaPlugin{
 	public void registerEvents(){
 		pm.registerEvents(new PreProcess(), this);
 		pm.registerEvents(new Chat(), this);
+		pm.registerEvents(new Move(), this);
 	}
 	
 	public void registerSchedulers(){
@@ -67,20 +72,24 @@ public class Main extends JavaPlugin{
 		/*
 		 * Anti command spam module
 		 */
-		PreProcess.anti_command_spam = ConfigManager.getBoolean("anti-command-spam-module.anti-command-spam");
-		MessageManager.sendInfoMessage("anti_command_spam = " + PreProcess.anti_command_spam);
-		PreProcess.Time = ConfigManager.getInt("anti-command-spam-module.time-interval-commands");
-		PreProcess.Max_Count = ConfigManager.getInt("anti-command-spam-module.max-amount-commands");
-		PreProcess.canKick = ConfigManager.getBoolean("anti-command-spam-module.kick-player-over-limit");
+		Anti_Command_Spam.anti_command_spam = ConfigManager.getBoolean("anti-command-spam-module.anti-command-spam");
+		MessageManager.sendInfoMessage("anti_command_spam = " + Anti_Command_Spam.anti_command_spam);
+		Anti_Command_Spam.Time = ConfigManager.getInt("anti-command-spam-module.time-interval-commands");
+		Anti_Command_Spam.Max_Count = ConfigManager.getInt("anti-command-spam-module.max-amount-commands");
+		Anti_Command_Spam.canKick = ConfigManager.getBoolean("anti-command-spam-module.kick-player-over-limit");
 		/*
 		 * Anti spam module
 		 */
-		Chat.anti_spam = ConfigManager.getBoolean("anti-spam-module.anti-spam");
-		MessageManager.sendInfoMessage("anti_spam = " + Chat.anti_spam);
-		Chat.time_interval_messages = ConfigManager.getInt("anti-spam-module.time-interval-messages");
-		Chat.max_amount_messages = ConfigManager.getInt("anti-spam-module.max-amount-messages");
-		Chat.max_amount_messages = ConfigManager.getInt("anti-spam-module.max-amount-messages");
-		Chat.canKick = ConfigManager.getBoolean("anti-spam-module.kick-player-over-limit");
+		Anti_Spam.anti_spam = ConfigManager.getBoolean("anti-spam-module.anti-spam");
+		MessageManager.sendInfoMessage("anti_spam = " + Anti_Spam.anti_spam);
+		Anti_Spam.time_interval_messages = ConfigManager.getInt("anti-spam-module.time-interval-messages");
+		Anti_Spam.max_amount_messages = ConfigManager.getInt("anti-spam-module.max-amount-messages");
+		Anti_Spam.max_amount_messages = ConfigManager.getInt("anti-spam-module.max-amount-messages");
+		Anti_Spam.canKick = ConfigManager.getBoolean("anti-spam-module.kick-player-over-limit");
+		
+		Anti_Wall_Running.anti_wall_running = ConfigManager.getBoolean("anti-wall-running-module.anti-wall-running");
+		MessageManager.sendInfoMessage("anti_wall_running = " + Anti_Wall_Running.anti_wall_running);
+		Anti_Wall_Running.banPlayer = ConfigManager.getBoolean("anti-wall-running-module.ban-player");
 	}
 	
 	public static Main getPlugin(){
