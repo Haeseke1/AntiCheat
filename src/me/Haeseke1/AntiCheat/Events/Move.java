@@ -1,6 +1,5 @@
 package me.Haeseke1.AntiCheat.Events;
 
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -25,7 +24,6 @@ public class Move implements Listener{
 				return;
 			}
 		}
-		Bukkit.broadcastMessage("added");
 		new Anti_Wall_Running(player.getUniqueId(), player.getLocation());
 	}
 	
